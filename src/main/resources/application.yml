@@ -1,0 +1,37 @@
+server:
+  #port: 3000
+  port: 8080
+springdoc:
+  api-docs:
+    path: /api-docs
+spring:
+  profiles:
+    active: test
+  application:
+    name: product-service
+  datasource:
+    #compile local
+    url: jdbc:postgresql://localhost:5432/odianto
+    #docker
+    #url: jdbc:postgresql://172.17.0.2:5432/odianto
+    username: postgres
+    password: Passw0rd
+    driver-class-name: org.postgresql.Driver
+    platform: postgresql
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: POSTGRESQL
+    open-in-view: false
+    generate-ddl: true
+    defer-datasource-initialization: true
+
+  logging:
+    pattern:
+      console: "%d %-5level %logger : %msg%n"
+    level:
+      org.springframework: info
+      org.hibernate: debug
+  main:
+    allow-bean-definition-overriding: true
