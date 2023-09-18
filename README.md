@@ -19,9 +19,13 @@ Spring v2.3.5
 ````
 git clone https://github.com/odianto/product-rest-api.git
 ````
-kemudian bisa Run Application.java menggunakan Intelljidea, atau bisa langsung di build dengan sintak
+kemudian bisa Run Application.java menggunakan Intelljidea apabila sudah memiliki PostgreSQL di local, apabila tidak ada PostgresSQL, bisa langsung di build dengan sintak
 ````
 mvn clean install
+````
+kemudian menjalankan
+````
+docker-compose up
 ````
 
 ## API Documentation

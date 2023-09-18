@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  app:
+    image: 'aecaec4a25711241a9262b1fb47509d60dd9e59724f8931c801433a8c1403b0e'
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - "db"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/odianto
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=Passw0rd
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+
+  db:
+    image: 'scarfacedeb/postgres-pg-partman:9.6'
+    ports:
+      - "5432:5432"
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Passw0rd
+      - POSTGRES_DB=odianto
